@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080a0f">
+<meta name="description" content="Caio Rossi — Programador, desenvolvedor e entusiasta de tecnologia, inteligência artificial e inovação.">
+<title>Caio Rossi — Programmer & Developer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #080a0f;
+    --surface: #10141d;
+    --surface2: #151b27;
+    --text: #f0f3fa;
+    --muted: #8993a5;
+    --accent: #8b9cff;
+    --accent2: #5ce1c5;
+    --border: rgba(255,255,255,.09);
+    --mono: 'DM Mono', monospace;
+    --font: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+::selection {
+    background: var(--accent);
+    color: #080a0f;
+}
+
+/* BACKGROUND */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 65px 65px;
+    mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+.glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(130px);
+    opacity: .12;
+    animation: float 12s ease-in-out infinite alternate;
+}
+
+.glow.one {
+    background: #596bff;
+    top: -300px;
+    left: 10%;
+}
+
+.glow.two {
+    background: #24d9b3;
+    bottom: -400px;
+    right: -200px;
+    animation-delay: -5s;
+}
+
+@keyframes float {
+    to {
+        transform: translate(100px, 100px) scale(1.2);
+    }
+}
+
+/* NAVIGATION */
+
+nav {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    width: 100%;
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8%;
+    border-bottom: 1px solid transparent;
+    transition: .3s;
+}
+
+nav.scrolled {
+    background: rgba(8,10,15,.86);
+    backdrop-filter: blur(20px);
+    border-color: var(--border);
+}
+
+.logo {
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+.nav-links a {
+    font-size: 12px;
+    color: var(--muted);
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.nav-contact {
+    border: 1px solid var(--border);
+    padding: 11px 18px;
+    border-radius: 5px;
+    color: white !important;
+}
+
+.nav-contact:hover {
+    background: white;
+    color: var(--bg) !important;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    padding: 150px 8% 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 1050px;
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font: 11px var(--mono);
+    color: var(--accent2);
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+    animation: fadeUp .8s both;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--accent2);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--accent2);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    50% { opacity: .3; }
+}
+
+.hero h1 {
+    font-size: clamp(55px, 9vw, 112px);
+    line-height: .98;
+    letter-spacing: -7px;
+    font-weight: 800;
+    animation: fadeUp .8s .1s both;
+}
+
+.hero h1 .outline {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,.55);
+}
+
+.hero-description {
+    margin-top: 35px;
+    color: var(--muted);
+    max-width: 530px;
+    line-height: 1.9;
+    font-size: 15px;
+    font-weight: 300;
+    animation: fadeUp .8s .2s both;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 40px;
+    animation: fadeUp .8s .3s both;
+}
+
+.btn {
+    padding: 15px 23px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.btn-primary {
+    color: #080a0f;
+    background: #e9edff;
+}
+
+.btn-primary:hover {
+    background: var(--accent2);
+    transform: translateY(-4px);
+}
+
+.btn-outline {
+    border: 1px solid var(--border);
+    color: white;
+}
+
+.btn-outline:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+}
+
+.hero-meta {
+    margin-top: 100px;
+    display: flex;
+    gap: 70px;
+    animation: fadeUp .8s .5s both;
+}
+
+.meta-item small {
+    display: block;
+    font: 10px var(--mono);
+    color: #667083;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.meta-item strong {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.hero-decoration {
+    position: absolute;
+    right: 10%;
+    top: 32%;
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgba(139,156,255,.12);
+    border-radius: 50%;
+    animation: rotate 35s linear infinite;
+}
+
+.hero-decoration::before,
+.hero-decoration::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(139,156,255,.15);
+    border-radius: 50%;
+    inset: 35px;
+}
+
+.hero-decoration::after {
+    inset: 80px;
+}
+
+.orbit {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    top: 35px;
+    left: 45px;
+    box-shadow: 0 0 25px var(--accent);
+}
+
+@keyframes rotate {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* GENERAL SECTIONS */
+
+section:not(.hero) {
+    padding: 120px 8%;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 65px;
+}
+
+.section-index {
+    font: 11px var(--mono);
+    color: var(--accent2);
+    margin-bottom: 18px;
+    letter-spacing: 2px;
+}
+
+.section-title {
+    font-size: clamp(35px, 5vw, 58px);
+    letter-spacing: -3px;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    color: var(--muted);
+    font-size: 13px;
+    max-width: 300px;
+    line-height: 1.8;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity .8s, transform .8s;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ABOUT */
+
+.about {
+    background: linear-gradient(180deg, transparent, rgba(17,22,32,.65), transparent);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.about-text {
+    font-size: 19px;
+    line-height: 1.9;
+    font-weight: 300;
+    color: #c3cad7;
+}
+
+.about-text strong {
+    color: white;
+    font-weight: 600;
+}
+
+.about-text .highlight {
+    color: var(--accent);
+}
+
+.about-details {
+    border-top: 1px solid var(--border);
+}
+
+.detail {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.detail span:first-child {
+    color: var(--muted);
+}
+
+.detail span:last-child {
+    color: white;
+}
+
+/* TERMINAL */
+
+.terminal {
+    margin-top: 55px;
+    background: #0b0e14;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: var(--mono);
+    box-shadow: 0 30px 80px rgba(0,0,0,.3);
+}
+
+.terminal-top {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #697386;
+    font-size: 10px;
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.terminal-dots i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #f16c70;
+}
+
+.terminal-dots i:nth-child(2) { background: #e8bb58; }
+.terminal-dots i:nth-child(3) { background: #55c99b; }
+
+.terminal-content {
+    padding: 28px;
+    font-size: 12px;
+    line-height: 2.3;
+    color: #a4aec0;
+}
+
+.terminal-content .green { color: var(--accent2); }
+.terminal-content .purple { color: var(--accent); }
+.terminal-content .white { color: white; }
+
+.cursor {
+    display: inline-block;
+    width: 7px;
+    height: 14px;
+    background: var(--accent2);
+    vertical-align: middle;
+    animation: blink 1s steps(2) infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* SKILLS */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 30px;
+    min-height: 190px;
+    border-radius: 5px;
+    transition: .35s;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(139,156,255,.5);
+    background: var(--surface2);
+}
+
+.skill-icon {
+    font-size: 27px;
+    margin-bottom: 25px;
+    display: block;
+}
+
+.skill-card h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.skill-number {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font: 10px var(--mono);
+    color: #424d60;
+}
+
+/* LEARNING */
+
+.learning {
+    background: rgba(16,20,29,.6);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.learning-card {
+    padding: 50px;
+    background: linear-gradient(120deg, #151c2d, #10141d);
+    border: 1px solid rgba(139,156,255,.2);
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.learning-card::after {
+    content: "PY";
+    position: absolute;
+    right: 130px;
+    top: -40px;
+    font-size: 210px;
+    font-weight: 800;
+    color: rgba(139,156,255,.045);
+    pointer-events: none;
+}
+
+.learning-label {
+    font: 10px var(--mono);
+    color: var(--accent2);
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.learning-card h3 {
+    font-size: 32px;
+    letter-spacing: -1px;
+    margin-bottom: 15px;
+}
+
+.learning-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+    max-width: 500px;
+}
+
+.python-icon {
+    font-size: 75px;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 0 25px rgba(139,156,255,.3));
+}
+
+/* PROJECTS */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 35px;
+    min-height: 290px;
+    display: flex;
+    flex-direction: column;
+    transition: .35s;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(139,156,255,.45);
+}
+
+.project-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.project-icon {
+    width: 45px;
+    height: 45px;
+    background: #1b2335;
+    border: 1px solid var(--border);
+    display: grid;
+    place-items: center;
+    border-radius: 7px;
+    font-size: 20px;
+}
+
+.project-arrow {
+    color: var(--muted);
+    font-size: 20px;
+    transition: .3s;
+}
+
+.project-card:hover .project-arrow {
+    color: var(--accent2);
+    transform: translate(4px,-4px);
+}
+
+.project-card h3 {
+    font-size: 22px;
+    margin-bottom: 13px;
+}
+
+.project-card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.9;
+    max-width: 450px;
+    margin-bottom: 25px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.tag {
+    font: 9px var(--mono);
+    color: #a5b2cb;
+    border: 1px solid var(--border);
+    padding: 7px 10px;
+    border-radius: 3px;
+}
+
+/* PHILOSOPHY */
+
+.philosophy {
+    text-align: center;
+    padding-top: 160px !important;
+    padding-bottom: 160px !important;
+}
+
+.philosophy blockquote {
+    font-size: clamp(27px, 5vw, 55px);
+    font-weight: 600;
+    letter-spacing: -2px;
+    line-height: 1.35;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.philosophy blockquote span {
+    color: var(--accent);
+}
+
+.philosophy small {
+    display: block;
+    margin-top: 30px;
+    color: var(--muted);
+    font: 10px var(--mono);
+    letter-spacing: 2px;
+}
+
+/* CONTACT */
+
+.contact {
+    background: linear-gradient(180deg, transparent, rgba(17,22,32,.8));
+}
+
+.contact-box {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 70px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.contact-box h2 {
+    font-size: clamp(35px, 5vw, 60px);
+    letter-spacing: -3px;
+    margin-bottom: 20px;
+}
+
+.contact-box p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 180px;
+}
+
+.contact-link {
+    border: 1px solid var(--border);
+    padding: 14px 18px;
+    border-radius: 4px;
+    font-size: 12px;
+    transition: .3s;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-link:hover {
+    background: var(--accent);
+    color: #080a0f;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 30px 8%;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+footer span {
+    font-family: var(--mono);
+}
+
+.back-top {
+    color: var(--accent);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px) {
+    .hero-decoration {
+        opacity: .3;
+        right: -100px;
+    }
+
+    .about-grid {
+        gap: 50px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 650px) {
+    nav {
+        padding: 0 6%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: #0d1119;
+        padding: 30px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+        border-bottom: 1px solid var(--border);
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero {
+        padding: 140px 6% 70px;
+        min-height: 95vh;
+    }
+
+    .hero h1 {
+        letter-spacing: -4px;
+    }
+
+    .hero-decoration {
+        width: 190px;
+        height: 190px;
+        top: 23%;
+        right: -90px;
+    }
+
+    .hero-meta {
+        gap: 25px;
+        flex-wrap: wrap;
+        margin-top: 70px;
+    }
+
+    section:not(.hero) {
+        padding: 85px 6%;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .about-text {
+        font-size: 17px;
+    }
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-card {
+        grid-template-columns: 1fr;
+        padding: 30px;
+    }
+
+    .python-icon {
+        position: absolute;
+        right: 25px;
+        top: 25px;
+        font-size: 40px;
+        opacity: .4;
+    }
+
+    .learning-card h3 {
+        font-size: 25px;
+    }
+
+    .contact-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 35px 25px;
+    }
+
+    .contact-links {
+        width: 100%;
+    }
+
+    footer {
+        padding: 25px 6%;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background">
+    <div class="grid-bg"></div>
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+</div>
+
+<!-- NAVIGATION -->
+
+<nav id="navbar">
+    <a href="#inicio" class="logo">caio<span>.</span>rossi</a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button>
+
+    <div class="nav-links" id="navLinks">
+        <a href="#sobre">SOBRE</a>
+        <a href="#tecnologias">TECNOLOGIAS</a>
+        <a href="#aprendizado">ESTUDOS</a>
+        <a href="#projetos">PROJETOS</a>
+        <a href="#contato" class="nav-contact">CONTATO ↗</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+
+<main>
+
+<section class="hero" id="inicio">
+
+    <div class="hero-decoration">
+        <div class="orbit"></div>
+    </div>
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            <span class="status-dot"></span>
+            PROGRAMMER / DEVELOPER
+        </div>
+
+        <h1>
+            Caio<br>
+            <span class="outline">Rossi.</span>
+        </h1>
+
+        <p class="hero-description">
+            Programador, entusiasta de tecnologia e explorador de ideias.
+            Desenvolvendo soluções, experimentando possibilidades e
+            transformando curiosidade em projetos.
+        </p>
+
+        <div class="hero-actions">
+            <a href="#projetos" class="btn btn-primary">
+                EXPLORAR PROJETOS ↗
+            </a>
+
+            <a href="https://github.com/caioross"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn btn-outline">
+                GITHUB ↗
+            </a>
+        </div>
+
+        <div class="hero-meta">
+            <div class="meta-item">
+                <small>IDENTIDADE</small>
+                <strong>Programador</strong>
+            </div>
+
+            <div class="meta-item">
+                <small>ATUALMENTE</small>
+                <strong>Estudando Python</strong>
+            </div>
+
+            <div class="meta-item">
+                <small>INTERESSES</small>
+                <strong>Tech · IA · Software</strong>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="sobre">
+
+    <div class="section-header reveal">
+        <div>
+            <div class="section-index">01 / SOBRE MIM</div>
+            <h2 class="section-title">Além do código.</h2>
+        </div>
+
+        <p class="section-subtitle">
+            Tecnologia como ferramenta para explorar,
+            construir e resolver problemas.
+        </p>
+    </div>
+
+    <div class="about-grid reveal">
+
+        <div class="about-text">
+            Sou <strong>Caio Rossi</strong>, programador e apaixonado
+            pelo universo da tecnologia.
+
+            <br><br>
+
+            Acredito que programar vai muito além de escrever código.
+            É entender problemas, experimentar caminhos e construir
+            soluções que antes existiam apenas como ideias.
+
+            <br><br>
+
+            Tenho interesse especial em
+            <span class="highlight">desenvolvimento de software,
+            inteligência artificial, computação e inovação.</span>
+
+            <br><br>
+
+            Estou sempre aprendendo, testando e desenvolvendo
+            novos projetos.
+        </div>
+
+        <div class="about-details">
+
+            <div class="detail">
+                <span>Nome</span>
+                <span>Caio Rossi</span>
+            </div>
+
+            <div class="detail">
+                <span>Profissão</span>
+                <span>Programador</span>
+            </div>
+
+            <div class="detail">
+                <span>Formação atual</span>
+                <span>Curso Completo de Python</span>
+            </div>
+
+            <div class="detail">
+                <span>Foco</span>
+                <span>Desenvolvimento</span>
+            </div>
+
+            <div class="detail">
+                <span>Abordagem</span>
+                <span>Aprender construindo</span>
+            </div>
+
+            <div class="detail">
+                <span>GitHub</span>
+                <span>@caioross</span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="terminal reveal">
+
+        <div class="terminal-top">
+            <div class="terminal-dots">
+                <i></i><i></i><i></i>
+            </div>
+            <span>caio@development ~ terminal</span>
+            <span>bash</span>
+        </div>
+
+        <div class="terminal-content">
+            <div><span class="green">caio@dev</span>:~$ whoami</div>
+            <div class="white">Caio Rossi — Programmer</div>
+
+            <div><span class="green">caio@dev</span>:~$ interests --list</div>
+            <div>
+                <span class="purple">[01]</span> Software Development<br>
+                <span class="purple">[02]</span> Artificial Intelligence<br>
+                <span class="purple">[03]</span> Mathematics & Computing<br>
+                <span class="purple">[04]</span> Technology & Innovation
+            </div>
+
+            <div><span class="green">caio@dev</span>:~$ python learning.py</div>
+            <div class="white">Learning never stops. <span class="cursor"></span></div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TECHNOLOGIES -->
+
+<section id="tecnologias">
+
+    <div class="section-header reveal">
+        <div>
+            <div class="section-index">02 / TECNOLOGIAS</div>
+            <h2 class="section-title">Meu universo.</h2>
+        </div>
+
+        <p class="section-subtitle">
+            Ferramentas, conceitos e áreas que fazem parte
+            da minha jornada na programação.
+        </p>
+    </div>
+
+    <div class="skills-grid">
+
+        <div class="skill-card reveal">
+            <span class="skill-number">01</span>
+            <span class="skill-icon">🐍</span>
+            <h3>Python</h3>
+            <p>Estudando a linguagem e explorando suas possibilidades no desenvolvimento de software.</p>
+        </div>
+
+        <div class="skill-card reveal">
+            <span class="skill-number">02</span>
+            <span class="skill-icon">🌐</span>
+            <h3>Web Development</h3>
+            <p>Criação de aplicações, interfaces e experiências digitais.</p>
+        </div>
+
+        <div class="skill-card reveal">
+            <span class="skill-number">03</span>
+            <span class="skill-icon">🤖</span>
+            <h3>Artificial Intelligence</h3>
+            <p>Exploração de inteligência artificial e suas aplicações na computação.</p>
+        </div>
+
+        <div class="skill-card reveal">
+            <span class="skill-number">04</span>
+            <span class="skill-icon">⚙️</span>
+            <h3>Software Engineering</h3>
+            <p>Lógica, arquitetura, resolução de problemas e desenvolvimento de sistemas.</p>
+        </div>
+
+        <div class="skill-card reveal">
+            <span class="skill-number">05</span>
+            <span class="skill-icon">🔬</span>
+            <h3>Computational Research</h3>
+            <p>Programação aplicada à matemática, experimentação e investigação computacional.</p>
+        </div>
+
+        <div class="skill-card reveal">
+            <span class="skill-number">06</span>
+            <span class="skill-icon">🧩</span>
+            <h3>Problem Solving</h3>
+            <p>Transformar problemas complexos em soluções estruturadas e funcionais.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- LEARNING -->
+
+<section class="learning" id="aprendizado">
+
+    <div class="section-header reveal">
+        <div>
+            <div class="section-index">03 / APRENDIZADO</div>
+            <h2 class="section-title">Em evolução.</h2>
+        </div>
+
+        <p class="section-subtitle">
+            Conhecimento construído com prática,
+            dedicação e experimentação.
+        </p>
+    </div>
+
+    <div class="learning-card reveal">
+
+        <div>
+            <div class="learning-label">ESTUDO ATUAL / 2026</div>
+
+            <h3>Python Completo</h3>
+
+            <p>
+                Atualmente realizando um curso completo de Python,
+                aprofundando conhecimentos em lógica de programação,
+                estruturas de dados, funções, orientação a objetos
+                e desenvolvimento de aplicações.
+            </p>
+
+            <br>
+
+            <span class="tag">PYTHON</span>
+            <span class="tag">PROGRAMMING</span>
+            <span class="tag">SOFTWARE DEVELOPMENT</span>
+        </div>
+
+        <div class="python-icon">🐍</div>
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projetos">
+
+    <div class="section-header reveal">
+        <div>
+            <div class="section-index">04 / PROJETOS</div>
+            <h2 class="section-title">Ideias em construção.</h2>
+        </div>
+
+        <p class="section-subtitle">
+            Projetos independentes, experimentos
+            e exploração de novas possibilidades.
+        </p>
+    </div>
+
+    <div class="projects-grid">
+
+        <a href="https://github.com/caioross/solitary10"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="project-card reveal">
+
+            <div class="project-top">
+                <div class="project-icon">∑</div>
+                <span class="project-arrow">↗</span>
+            </div>
+
+            <h3>Solitary10</h3>
+
+            <p>
+                Projeto independente de investigação matemática
+                computacional, explorando teoria dos números,
+                aritmética exata e métodos de verificação.
+            </p>
+
+            <div class="tags">
+                <span class="tag">MATHEMATICS</span>
+                <span class="tag">COMPUTATION</span>
+                <span class="tag">RESEARCH</span>
+            </div>
+
+        </a>
+
+        <a href="https://solitary10.caiorossi.com/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="project-card reveal">
+
+            <div class="project-top">
+                <div class="project-icon">◈</div>
+                <span class="project-arrow">↗</span>
+            </div>
+
+            <h3>Solitary10 Web</h3>
+
+            <p>
+                Ambiente web do projeto Solitary10, dedicado
+                à apresentação e exploração de seus conceitos
+                e experimentos computacionais.
+            </p>
+
+            <div class="tags">
+                <span class="tag">WEB</span>
+                <span class="tag">MATHEMATICS</span>
+                <span class="tag">EXPERIMENTATION</span>
+            </div>
+
+        </a>
+
+        <a href="https://github.com/caioross?tab=repositories"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="project-card reveal">
+
+            <div class="project-top">
+                <div class="project-icon">⌘</div>
+                <span class="project-arrow">↗</span>
+            </div>
+
+            <h3>Experimentos & Código</h3>
+
+            <p>
+                Um espaço para projetos independentes,
+                experimentações técnicas e novas ideias
+                transformadas em código.
+            </p>
+
+            <div class="tags">
+                <span class="tag">GITHUB</span>
+                <span class="tag">OPEN SOURCE</span>
+                <span class="tag">DEVELOPMENT</span>
+            </div>
+
+        </a>
+
+        <div class="project-card reveal">
+
+            <div class="project-top">
+                <div class="project-icon">✳</div>
+                <span class="project-arrow">+</span>
+            </div>
+
+            <h3>Próximas possibilidades</h3>
+
+            <p>
+                Novas ideias, ferramentas e projetos estão
+                sempre surgindo. O próximo experimento pode
+                começar a qualquer momento.
+            </p>
+
+            <div class="tags">
+                <span class="tag">EXPLORATION</span>
+                <span class="tag">IDEAS</span>
+                <span class="tag">INNOVATION</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PHILOSOPHY -->
+
+<section class="philosophy reveal">
+
+    <div class="section-index">05 / FILOSOFIA</div>
+
+    <blockquote>
+        "A curiosidade é o ponto de partida.
+        <span>O código é apenas uma das formas</span>
+        de transformar ideias em realidade."
+    </blockquote>
+
+    <small>THINK · EXPLORE · BUILD · REPEAT</small>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contato">
+
+    <div class="section-header reveal">
+        <div>
+            <div class="section-index">06 / CONTATO</div>
+            <h2 class="section-title">Vamos conectar?</h2>
+        </div>
+
+        <p class="section-subtitle">
+            Tecnologia, ideias e boas conversas
+            sempre são bem-vindas.
+        </p>
+    </div>
+
+    <div class="contact-box reveal">
+
+        <div>
+            <div class="section-index">OPEN TO CONNECTIONS</div>
+
+            <h2>Let's build<br>something.</h2>
+
+            <p>
+                Acompanhe meus projetos e minha jornada
+                pelo universo da programação.
+            </p>
+        </div>
+
+        <div class="contact-links">
+
+            <a href="https://github.com/caioross"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="contact-link">
+                GitHub <span>↗</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/caiorossi/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="contact-link">
+                LinkedIn <span>↗</span>
+            </a>
+
+            <a href="https://caiorossi.casa"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="contact-link">
+                Website <span>↗</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+    <span>© 2026 CAIO ROSSI</span>
+
+    <span>DESIGNED WITH CURIOSITY & CODE.</span>
+
+    <a href="#inicio" class="back-top">BACK TO TOP ↑</a>
+</footer>
+
+<script>
+
+// NAVIGATION SCROLL
+
+const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// MOBILE MENU
+
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.textContent = '☰';
+    });
+});
+
+// SCROLL REVEAL
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.12
+});
+
+document.querySelectorAll('.reveal').forEach(element => {
+    observer.observe(element);
+});
+
+// SKILL CARD STAGGER
+
+document.querySelectorAll('.skill-card, .project-card').forEach((card, index) => {
+    card.style.transitionDelay = `${(index % 3) * 90}ms`;
+});
+
+// TERMINAL CURSOR
+
+const terminal = document.querySelector('.terminal');
+
+if (terminal) {
+    terminal.addEventListener('mouseenter', () => {
+        terminal.style.borderColor = 'rgba(139,156,255,.35)';
+    });
+
+    terminal.addEventListener('mouseleave', () => {
+        terminal.style.borderColor = 'rgba(255,255,255,.09)';
+    });
+}
+
+</script>
+
+</body>
+</html>
